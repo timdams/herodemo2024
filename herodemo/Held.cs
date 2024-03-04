@@ -50,5 +50,35 @@ namespace herodemo
         }
 
 
+        public void ValAan(Mummie vijand) //Todo wat met andere type monsters? En andere gelden ? (friendly fire?)
+        {
+            Dobbelsteen d1 = new Dobbelsteen();
+
+            int aantalSkelet = 0;
+            int aantalSchildVijand = 0;
+
+            //aanval keren rollen door held
+            for (int i = 0; i < Aanval; i++)
+            {
+                if (d1.Rol() == DobbelWaarden.Skelet)
+                    aantalSkelet++;
+            }
+
+            //verdediging keren rollen door monster
+
+            for (int i = 0; i < vijand.Verdediging; i++)
+            {
+                if (d1.Rol() == DobbelWaarden.MonsterSchild)
+                    aantalSchildVijand++;
+            }
+            Console.WriteLine(aantalSkelet);
+            Console.WriteLine(  aantalSchildVijand);
+            //vergelijken en monster doden indien aantalSkelet > aantalSchildVijand
+            if (aantalSkelet> aantalSchildVijand)
+            {
+                vijand.KrijgSchade(aantalSkelet-aantalSchildVijand) ;
+            }
+        }
+
     }
 }
