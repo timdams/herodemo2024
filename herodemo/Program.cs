@@ -9,12 +9,14 @@ namespace herodemo
             Mummie eenVijand = new Mummie();
 
 
-            Held elf = new Held();
-            elf.LichaamMax = 6;
-            elf.Aanval = 2;
+            Held elf = new Held(HeldTypes.Barbaar);//overloaded
+
+            
+            //elf.LichaamMax = 6; //gaan we in constructor doen
+            //elf.Aanval = 2;
             for (int i = 0; i < 5; i++)
             {
-                eenVijand = new Mummie();
+                eenVijand = new Mummie(); //default
                 elf.ValAan(eenVijand);
 
                 if (eenVijand.Lichaam == 0)

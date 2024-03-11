@@ -6,11 +6,40 @@ using System.Threading.Tasks;
 
 namespace herodemo
 {
+
+    public enum HeldTypes { Barbaar, Dwerg, Elf, Tovenaar }
+
     internal class Held
     {
 
         //TODO constructor ????
+        public Held(HeldTypes heldType)//overloaded constructor
+        {
+            switch (heldType)
+            {
+                case HeldTypes.Barbaar:
+                    Aanval = 3;
+                    Verdediging = 2;
+                    Lopen = 2;
+                    IntelligentieMax = 2;
+                    LichaamMax = 8;
+                    break;
+                case HeldTypes.Dwerg: //2,2,2,3,7
+                    break;
+                case HeldTypes.Elf://2,2,2,4,6
+                    break;
+                case HeldTypes.Tovenaar://1,2,2,6,4
+                    break;
+                default:
+                    break;
+            }
 
+            LichaamActueel = LichaamMax;
+            IntelligentieActueel = IntelligentieMax;
+            HeldType = heldType;
+        }
+
+        public HeldTypes HeldType { get; set; }
 
         public string Naam { get; set; }
         public string Beschrijving { get; set; }
@@ -72,11 +101,11 @@ namespace herodemo
                     aantalSchildVijand++;
             }
             Console.WriteLine(aantalSkelet);
-            Console.WriteLine(  aantalSchildVijand);
+            Console.WriteLine(aantalSchildVijand);
             //vergelijken en monster doden indien aantalSkelet > aantalSchildVijand
-            if (aantalSkelet> aantalSchildVijand)
+            if (aantalSkelet > aantalSchildVijand)
             {
-                vijand.KrijgSchade(aantalSkelet-aantalSchildVijand) ;
+                vijand.KrijgSchade(aantalSkelet - aantalSchildVijand);
             }
         }
 
