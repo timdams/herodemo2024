@@ -39,6 +39,12 @@ namespace herodemo
             HeldType = heldType;
         }
 
+        public static void VergelijkHelden(Held held1, Held held2)
+        {
+            if(held1.LichaamActueel > held2.lichaamActueel)
+                Console.WriteLine("held1 staat er beter voor dan held 2");
+        }
+
         public HeldTypes HeldType { get; set; }
 
         public string Naam { get; set; }

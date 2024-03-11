@@ -9,29 +9,27 @@ namespace herodemo
             Mummie eenVijand = new Mummie();
 
 
-            Held elf = new Held(HeldTypes.Barbaar);//overloaded
-
+            Held speler1 = new Held(HeldTypes.Barbaar);
             
-            //elf.LichaamMax = 6; //gaan we in constructor doen
-            //elf.Aanval = 2;
-            for (int i = 0; i < 5; i++)
+            Held speler2 = new Held(HeldTypes.Barbaar);//overloaded constructor
+            Mummie mummie = new Mummie(); //default constructor
+
+            //references/referenties
+            Held actieveSpeler = speler1;
+            while (true)
             {
-                eenVijand = new Mummie(); //default
-                elf.ValAan(eenVijand);
-
-                if (eenVijand.Lichaam == 0)
-                    Console.WriteLine("Gewonnen");
+                Console.WriteLine("Nieuwe ronde");
+                if (actieveSpeler == speler1)
+                    actieveSpeler = speler2;
                 else
-                    Console.WriteLine("Verloren");
+                    actieveSpeler = speler1;
 
+
+                //vraag aan gebruiker wat hij wil doen 
+                actieveSpeler.ValAan(mummie);
+
+                Held.VergelijkHelden(speler1, speler2);
             }
-
-
-            //Dobbelsteen d1 = new Dobbelsteen();
-            //for (int i = 0; i < 100; i++)
-            //{
-            //    Console.WriteLine(d1.Rol());
-            //}
         }
     }
 }
