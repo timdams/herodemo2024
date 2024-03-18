@@ -6,7 +6,30 @@ namespace herodemo
     {
         static void Main(string[] args)
         {
-            Mummie eenVijand = new Mummie();
+            //string monster = HQ24_DAL_CL.HQDAL.GetMonsterStats();
+
+            //string[] splitMonsters = monster.Split("\r\n");
+
+            //string[] mummieData = splitMonsters[6].Split(";");
+
+
+            List<Mummie> theHorde = new List<Mummie>();
+            Mummie mommy = new Mummie();
+            theHorde.Add(mommy);
+
+            for (int i = 0; i < 10; i++)
+            {
+                // theHorde.Add(new Mummie());
+                Mummie soloMummie = new Mummie();
+                theHorde.Add(soloMummie);
+            }
+
+            theHorde[4].ToonInfo();
+
+            theHorde.Remove(new Mummie());
+
+
+          
 
 
             Held speler1 = new Held(HeldTypes.Barbaar);
