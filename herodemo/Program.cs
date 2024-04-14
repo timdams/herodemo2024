@@ -1,4 +1,5 @@
 ﻿using System.Net.WebSockets;
+using herodemo.Engine;
 
 namespace herodemo
 {
@@ -6,11 +7,6 @@ namespace herodemo
     {
         static void Main(string[] args)
         {
-            //string monster = HQ24_DAL_CL.HQDAL.GetMonsterStats();
-
-            //string[] splitMonsters = monster.Split("\r\n");
-
-            //string[] mummieData = splitMonsters[6].Split(";");
 
 
             List<Mummie> theHorde = new List<Mummie>();

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace herodemo
+namespace herodemo.Hulpklassen
 {
     public enum DobbelWaarden { Skelet, HeldSchild, MonsterSchild }
 

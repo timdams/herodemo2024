@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace herodemo
+namespace herodemo.Engine
 {
     internal class Mummie
     {
@@ -23,13 +23,13 @@ namespace herodemo
         public void KrijgSchade(int aantalSchade)
         {
             //Todo Lichaam fullprop van maken
-            if(Lichaam !=0 &&  aantalSchade>0)//als monster nog leeft
+            if (Lichaam != 0 && aantalSchade > 0)//als monster nog leeft
             {
                 Lichaam = 0;
             }
             else
             {
-              //Todo  throw new Exception("Ge moogt niet kloppen op lijken");
+                //Todo  throw new Exception("Ge moogt niet kloppen op lijken");
             }
         }
     }

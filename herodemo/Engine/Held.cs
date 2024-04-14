@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using herodemo.Hulpklassen;
 
-namespace herodemo
+namespace herodemo.Engine
 {
 
     public enum HeldTypes { Barbaar, Dwerg, Elf, Tovenaar }
@@ -41,7 +42,7 @@ namespace herodemo
 
         public static void VergelijkHelden(Held held1, Held held2)
         {
-            if(held1.LichaamActueel > held2.lichaamActueel)
+            if (held1.LichaamActueel > held2.lichaamActueel)
                 Console.WriteLine("held1 staat er beter voor dan held 2");
         }
 

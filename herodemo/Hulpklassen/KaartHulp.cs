@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace herodemo
+namespace herodemo.Hulpklassen
 {
-    internal class Kaart
+    internal class KaartHulp
     {
-        private static string schaduwKaart= @"┌──┬───────┬──┐
+        private static string schaduwKaart = @"┌──┬───────┬──┐
 │  │       │  │▓
 ├──┴───────┴──┤▓
 │             │▓
@@ -23,7 +23,7 @@ namespace herodemo
 └─────────────┘▓
  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓";
 
-        private static string geenSchaduwKaart=
+        private static string geenSchaduwKaart =
             @"┌──┬───────┬──┐
 │  │       │  │
 ├──┴───────┴──┤
@@ -37,12 +37,12 @@ namespace herodemo
 │             │
 └─────────────┘";
 
-        public virtual void Teken(int x, int y, string titel, string beschrijving, string linksboven = "", string midden = "", string rechtsboven = "", ConsoleColor hoofdKleur = ConsoleColor.White, bool schaduw = true)
+        private static void TekenKaart(int x, int y, string titel, string beschrijving, string linksboven = "", string midden = "", string rechtsboven = "", ConsoleColor hoofdKleur = ConsoleColor.White, bool schaduw = true)
         {
             //Meer karakters op https://en.wikipedia.org/wiki/Box-drawing_characters
-            string tekenKaart = Kaart.geenSchaduwKaart;
-            if(!schaduw)
-            { tekenKaart = Kaart.schaduwKaart; }
+            string tekenKaart = geenSchaduwKaart;
+            if (!schaduw)
+            { tekenKaart = schaduwKaart; }
 
             Console.ForegroundColor = hoofdKleur;
             string[] lijnen = tekenKaart.Split(Environment.NewLine);
@@ -66,7 +66,7 @@ namespace herodemo
 
             //midden        
             Console.SetCursorPosition(x + 4, y + 1);
-            Console.Write(midden.Substring(0,7)); //mag max 7 lang zijn
+            Console.Write(midden.Substring(0, 7)); //mag max 7 lang zijn
             Console.ForegroundColor = hoofdKleur;
 
 
@@ -79,15 +79,15 @@ namespace herodemo
             //beschrijving
             //mag max 5x12 karakters lang zijn (kan ook ascii art zijn ;)  )
             const int partSize = 12;
-            const int MAX_BESCHRIJVING = partSize*5;
-            string opgekuisteBeschrijving = beschrijving.Trim().Replace("\n",string.Empty).Replace(Environment.NewLine, string.Empty);
+            const int MAX_BESCHRIJVING = partSize * 5;
+            string opgekuisteBeschrijving = beschrijving.Trim().Replace("\n", string.Empty).Replace(Environment.NewLine, string.Empty);
 
             if (beschrijving.Length > MAX_BESCHRIJVING)
                 opgekuisteBeschrijving = opgekuisteBeschrijving.Substring(0, MAX_BESCHRIJVING);
 
             //bron: https://stackoverflow.com/questions/4133377/splitting-a-string-number-every-nth-character-number/38172121#38172121
-            
-            var splitBeschrijving= Enumerable.Range(0, (opgekuisteBeschrijving.Length + partSize - 1) / partSize).Select(i => opgekuisteBeschrijving.Substring(i * partSize, Math.Min(opgekuisteBeschrijving.Length - i * partSize, partSize))).ToArray();
+
+            var splitBeschrijving = Enumerable.Range(0, (opgekuisteBeschrijving.Length + partSize - 1) / partSize).Select(i => opgekuisteBeschrijving.Substring(i * partSize, Math.Min(opgekuisteBeschrijving.Length - i * partSize, partSize))).ToArray();
             for (int i = 0; i < splitBeschrijving.Length; i++)
             {
                 Console.SetCursorPosition(x + 1, y + 5 + i);
