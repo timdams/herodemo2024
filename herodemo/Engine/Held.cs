@@ -10,11 +10,11 @@ namespace herodemo.Engine
 
     public enum HeldTypes { Barbaar, Dwerg, Elf, Tovenaar }
 
-    internal class Held
+    internal class Held:SpelPersonage
     {
 
-        //TODO constructor ????
-        public Held(HeldTypes heldType)//overloaded constructor
+     
+        public Held(HeldTypes heldType):base("Held",2,2,2,2,2)
         {
             switch (heldType)
             {
@@ -48,12 +48,11 @@ namespace herodemo.Engine
 
         public HeldTypes HeldType { get; set; }
 
-        public string Naam { get; set; }
+       
         public string Beschrijving { get; set; }
-        public int Aanval { get; set; }
-        public int Verdediging { get; set; }
+        
 
-        public int Lopen { get; set; }
+
         public int IntelligentieMax { get; set; }
         public int LichaamMax { get; set; }
 
@@ -79,12 +78,6 @@ namespace herodemo.Engine
                     intelligentieActueel = value;
             }
         }
-
-        public void ToonInfo()
-        {
-            Console.WriteLine($"{Naam}: L{Lopen} A{Aanval} V{Verdediging} L{LichaamActueel}/{LichaamMax} I{IntelligentieActueel}/{IntelligentieMax}");
-        }
-
 
         public void ValAan(Mummie vijand) //Todo wat met andere type monsters? En andere gelden ? (friendly fire?)
         {
