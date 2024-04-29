@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,11 +11,11 @@ namespace herodemo.Engine
 
     public enum HeldTypes { Barbaar, Dwerg, Elf, Tovenaar }
 
-    internal class Held:SpelPersonage
+    internal class Held : SpelPersonage
     {
 
-     
-        public Held(HeldTypes heldType):base("Held",2,2,2,2,2)
+
+        public Held(HeldTypes heldType) : base("Held", 2, 2, 2, 2, 2)
         {
             switch (heldType)
             {
@@ -40,6 +41,16 @@ namespace herodemo.Engine
             HeldType = heldType;
         }
 
+        private Schat inventaris = new Schat();
+
+        public void VoegSchatToe(Schat deSchat)
+        {
+            if (deSchat != null)
+            {
+                inventaris = deSchat;
+            }
+        }
+
         public static void VergelijkHelden(Held held1, Held held2)
         {
             if (held1.LichaamActueel > held2.lichaamActueel)
@@ -48,9 +59,9 @@ namespace herodemo.Engine
 
         public HeldTypes HeldType { get; set; }
 
-       
+
         public string Beschrijving { get; set; }
-        
+
 
 
         public int IntelligentieMax { get; set; }
