@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace herodemo.Engine
 {
-    internal class Tegel
+    internal class Tegel:System.Object
     {
         private Schat schat;
 

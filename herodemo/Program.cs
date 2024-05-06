@@ -7,20 +7,24 @@ namespace herodemo
     {
         static void Main(string[] args)
         {
-            Tegel tegel1 = new Tegel();
-            Schat tijdelijkeSchat = new Schat();
-            tijdelijkeSchat.Beschrijving = "Blinky diamond";
+
+            Spelbord bord = new Spelbord();
+            bord.TekenBord();
+
+            //Tegel tegel1 = new Tegel();
+            //Schat tijdelijkeSchat = new Schat();
+            //tijdelijkeSchat.Beschrijving = "Blinky diamond";
            
             
-            tegel1 = new Tegel();
-            tegel1.VoegSchatToe(tijdelijkeSchat);
+            //tegel1 = new Tegel();
+            //tegel1.VoegSchatToe(tijdelijkeSchat);
 
-            tegel1.ToonSchat();
+            //tegel1.ToonSchat();
 
 
-            Held barbaar = new Held(HeldTypes.Barbaar);
+            //Held barbaar = new Held(HeldTypes.Barbaar);
 
-            barbaar.VoegSchatToe(tegel1.ZoekSchat());
+            //barbaar.VoegSchatToe(tegel1.ZoekSchat());
 
  
             //List<Mummie> theHorde = new List<Mummie>();
